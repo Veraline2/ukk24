@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <form action="" class="kalkulator" name="calc">
+        <input class="value" type="text" name="txt" readonly="">
+       
+<span class="num clear" onclick="document.calc.txt.value =''">Clear</span>
+<!-- Tambahkan tombol Delete -->
+<span class="num delete" onclick="deleteLast()">Del</span>
+        <span class="num equal" onclick="document.calc.txt.value =eval(document.calc.txt.value)">=</span>
+
+        <span class="num" onclick="document.calc.txt.value +='9'">9</span>
+        <span class="num" onclick="document.calc.txt.value +='8'">8</span>
+        <span class="num" onclick="document.calc.txt.value +='7'">7</span>
+        <span class="num" onclick="document.calc.txt.value +='*'">*</span>
+        <span class="num" onclick="document.calc.txt.value +='6'">6</span>
+        <span class="num" onclick="document.calc.txt.value +='5'">5</span>
+        <span class="num" onclick="document.calc.txt.value +='4'">4</span>
+        <span class="num" onclick="document.calc.txt.value +='/'">/</span>
+        <span class="num" onclick="document.calc.txt.value +='3'">3</span>
+        <span class="num" onclick="document.calc.txt.value +='2'">2</span>
+        <span class="num" onclick="document.calc.txt.value +='1'">1</span>
+        <span class="num" onclick="document.calc.txt.value +='-'">-</span>
+        <span class="num" onclick="document.calc.txt.value +='0'">0</span>
+        <span class="num" onclick="document.calc.txt.value +='00'">00</span>
+        <span class="num" onclick="document.calc.txt.value +='.'">.</span>
+        <span class="num" onclick="document.calc.txt.value +='+'">+</span>
+<script>
+  function deleteLast() {
+    var currentDisplay = document.calc.txt.value;
+    document.calc.txt.value = currentDisplay.slice(0, -1);
+  }
+  // ribuan
+  function appendToDisplay(value) {
+            var currentDisplay = document.calc.txt.value;
+
+            // Memeriksa apakah nilai yang dimasukkan adalah operator
+            if (['+', '-', '*', '/'].includes(value)) {
+                document.calc.txt.value += value;
+            } else {
+                // Mengonversi nilai ke dalam format ribuan dengan menambahkan titik
+                document.calc.txt.value = formatNumber(currentDisplay + value);
+            }
+        }
+
+        function formatNumber(number) {
+            // Memformat angka dengan menambahkan titik sebagai separator ribuan
+            return Number(number).toLocaleString('en-US');
+        }
+
+        function calculate() {
+            // Menghapus titik ribuan sebelum melakukan perhitungan
+            var expression = document.calc.txt.value.replace(/,/g, '');
+            document.calc.txt.value = eval(expression);
+        }
+</script>
+
+    </form>
+</body>
+</html>

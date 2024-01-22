@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "monsterrat",sans-serif;
+    box-sizing: border-box;
+}
+input{background: #152d38;
+color: #fff;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #091921;
+}
+.kalkulator {
+    position: relative;
+    display: grid;
+    border: 10px double #114f6b;
+    border-radius: 5%;
+}
+.kalkulator .value {
+    grid-column: span 4;
+    height: 80px;
+    width: 240px;
+    text-align: right;
+    border: 1px solid rgba(0, 0, 0, 1);
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10%;
+
+}
+.kalkulator span {
+    display: grid;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    font-size: 20px;
+    background: #0c2835;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+.kalkulator span:active {
+    background: #004e8e;
+    color: #ffffff;
+}
+.kalkulator span.clear {
+    grid-column: span 2;
+    width: 120px;
+    background: #aa003b;
+}
+.kalkulator span.plus {
+    grid-row: span 1;
+    height: 120px;
+}
+.kalkulator span.equal {
+    background: #006390;
+}
+.num.delete {
+    background-color: #7c0000; /* warna merah */
+  }
+  
